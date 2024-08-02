@@ -1,15 +1,6 @@
-from flask import Flask
-from openai import OpenAI
-import os
+import sys
 
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():
-    return "Hello, world!"
-
-if __name__ == '__main__':
-    print("hello world")
-    
+if __name__ == "__main__":
+    input_text = sys.stdin.read().strip()
+    # Process the input and produce output
+    print(input_text)  # Replace with actual logic
