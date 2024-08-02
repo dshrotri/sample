@@ -1,29 +1,31 @@
-name: Run main.py on Push
+name: Python Tests
 
 on:
   push:
-    branches-ignore:
+    branches:
+      - '**'
+  pull_request:
+    branches:
       - main
 
 jobs:
-  run-main-py:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # specify the Python version you need
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run main.py
-        run: python main.py
+      - name: Run tests
+        run: |
+          pytest test_main.py
