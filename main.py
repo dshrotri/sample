@@ -1,3 +1,6 @@
-input_text = input()
-# Process the input and produce output
-print(input_text)  # Replace with actual logic
+import sys
+
+if __name__ == "__main__":
+    input_text = sys.stdin.read().strip()
+    # Example processing logic
+    print(input_text)  # Replace with actual logic
