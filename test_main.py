@@ -7,7 +7,7 @@ def test_main_script():
     # Run the main.py script and capture the output
     result = subprocess.run(
         ["python", "main.py"],
-        input=input_text.encode(),  # Encode the input as bytes
+        input=input_text,  # Provide the input as a string
         capture_output=True,
         text=True  # Capture the output as text
     )
